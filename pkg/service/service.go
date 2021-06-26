@@ -1,6 +1,8 @@
 package service
 
-import "github.com/zhashkevych/todo-app/pkg/repository"
+import (
+	"github.com/tatatia/list-app-go/pkg/repository"
+)
 
 type Authorization interface {
 }
