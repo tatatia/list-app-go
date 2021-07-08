@@ -1,10 +1,12 @@
 package service
 
 import (
+	todo "github.com/tatatia/list-app-go"
 	"github.com/tatatia/list-app-go/pkg/repository"
 )
 
 type Authorization interface {
+	CreateUser(user todo.User) (int, error)
 }
 
 type TodoList interface {
@@ -20,5 +22,7 @@ type Service struct {
 }
 
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		Authorization: NewAuthService(repos.Authorization),
+	}
 }
