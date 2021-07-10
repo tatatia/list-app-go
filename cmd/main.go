@@ -9,7 +9,6 @@ import (
 	"github.com/tatatia/list-app-go/pkg/handler"
 	"github.com/tatatia/list-app-go/pkg/repository"
 	"github.com/tatatia/list-app-go/pkg/service"
-	"os"
 )
 
 // docker run --name=postgres-db -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
@@ -32,7 +31,7 @@ func main() {
 		Username: viper.GetString("db.username"),
 		DBName:   viper.GetString("db.dbname"),
 		SSLMode:  viper.GetString("db.sslmode"),
-		Password: os.Getenv("DB_PASSWORD"),
+		Password: viper.GetString("db.password"),
 	})
 	if err != nil {
 		logrus.Fatalf("failed to initialize db: %s", err.Error())
