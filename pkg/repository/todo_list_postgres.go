@@ -24,7 +24,7 @@ func (r *TodoListPostgres) Create(userId int, list todo.TodoList) (int, error) {
 
 	var id int
 	createListQuery := fmt.Sprintf("INSERT INTO %s(title, description)VALUES($1, $2) RETURNING id", todoItemsTable)
-	row := tx.QueryRow(createListQuery, list.Title, list.Decription)
+	row := tx.QueryRow(createListQuery, list.Title, list.Description)
 	if err := row.Scan(&id); err != nil {
 		tx.Rollback()
 		return 0, err
@@ -79,7 +79,7 @@ func (r *TodoListPostgres) Update(userId, listId int, input todo.UpdateListInput
 		argId++
 	}
 
-	if input.Title != nil {
+	if input.Description != nil {
 		setValues = append(setValues, fmt.Sprintf("description=$%d", argId))
 		args = append(args, *input.Description)
 		argId++
