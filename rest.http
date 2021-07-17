@@ -2,9 +2,9 @@ POST http://localhost:8080/auth/sign-up
 Content-Type: application/json
 
 {
-  "name": "Taras",
-  "username": "Shevchenko",
-  "password": "1234"
+  "name": "Tanya",
+  "username": "Slobodeniuk",
+  "password": "7777"
 }
 
 ####
@@ -12,6 +12,35 @@ POST http://localhost:8080/auth/sign-in
 Content-Type: application/json
 
 {
-  "username": "Shevchenko",
-  "password": "1234"
+  "username": "Slobodeniuk",
+  "password": "7777"
 }
+
+####
+GET http://localhost:8080/api/lists/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjY1NjkzMjEsImlhdCI6MTYyNjUyNjEyMSwidXNlcl9pZCI6Mn0.UD6ryQRmKz7OPVA2kNqf9M2Lolo8tm4941RJAj-Wh_k
+
+####
+POST http://localhost:8080/api/lists/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjY1NjkzMjEsImlhdCI6MTYyNjUyNjEyMSwidXNlcl9pZCI6Mn0.UD6ryQRmKz7OPVA2kNqf9M2Lolo8tm4941RJAj-Wh_k
+Content-Type: application/json
+
+{
+  "title": "заголовок 3",
+  "description": "опис 3"
+}
+
+####
+POST http://localhost:8080/api/lists/3/items/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjY1NjkzMjEsImlhdCI6MTYyNjUyNjEyMSwidXNlcl9pZCI6Mn0.UD6ryQRmKz7OPVA2kNqf9M2Lolo8tm4941RJAj-Wh_k
+Content-Type: application/json
+
+{
+  "title": "вивчити DOCKER",
+  "description": "DOCKER",
+  "done": true
+}
+
+####
+DELETE http://localhost:8080/api/items/5/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjY1NjkzMjEsImlhdCI6MTYyNjUyNjEyMSwidXNlcl9pZCI6Mn0.UD6ryQRmKz7OPVA2kNqf9M2Lolo8tm4941RJAj-Wh_k

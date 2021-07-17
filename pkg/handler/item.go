@@ -104,7 +104,7 @@ func (h *Handler) deleteItem(c *gin.Context) {
 		return
 	}
 
-	itemId, err := strconv.Atoi(c.Param("id"))
+	itemId, err := strconv.Atoi(c.Param("item_id"))
 	if err != nil {
 		newErrorResponse(c, http.StatusBadRequest, "invalid list id param")
 		return
